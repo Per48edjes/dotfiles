@@ -5,7 +5,7 @@
 export TERM="xterm-256color-italic"
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
 
 # Skip verification of insecure directories for completions
 ZSH_DISABLE_COMPFIX="true"
@@ -198,3 +198,9 @@ eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
 eval "$(pyenv init -)"
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
+
+## GHCup
+
+ # ghcup-env
+
+[ -f "/Users/rdayabhai/.ghcup/env" ] && source "/Users/rdayabhai/.ghcup/env"

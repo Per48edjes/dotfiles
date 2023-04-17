@@ -158,7 +158,8 @@ let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'json': ['jq'],
 \   'sh': ['shellcheck'],
-\   'yaml': ['yamllint']
+\   'yaml': ['yamllint'],
+\   'haskell': ['hlint']
 \}
 
 " Set fixers
@@ -169,7 +170,8 @@ let g:ale_fixers = {
 \   'markdown': ['prettier'],
 \   'javascript': ['prettier'],
 \   'json': ['jq'],
-\   'yaml': ['prettier']
+\   'yaml': ['prettier'],
+\   'haskell': ['stylish-haskell']
 \}
 
 " Play nice with CoC
@@ -375,6 +377,17 @@ let g:limelight_paragraph_span = 1
 
 
 "=====================================================
+"" tabular settings
+"=====================================================
+
+let g:haskell_tabular = 1
+
+vmap t= :Tabularize /=<CR>
+vmap t; :Tabularize /::<CR>
+vmap t- :Tabularize /-><CR>
+
+
+"=====================================================
 "" vim-slime settings
 "=====================================================
 
@@ -437,6 +450,13 @@ augroup SQL autocmd!
       \ commentstring=--\ %s
 augroup END
 
+" Haskell settings
+augroup SQL autocmd!
+    au BufNewFile,BufRead *.{hs,lhs}
+      \ set tabstop=2 softtabstop=2 shiftwidth=2 expandtab textwidth=120 autoindent
+      \ commentstring=--\ %s
+augroup END
+
 " Textfile settings
 augroup Textfiles autocmd!
     au BufNewFile,BufRead *.{md,markdown,mdown,mkd,mdtxt,Rmd,mkdn,tex,latex}
@@ -463,6 +483,7 @@ augroup END
 augroup JSON autocmd! 
   au FileType json syntax match Comment +\/\/.\+$+
 augroup END
+
 
 "=====================================================
 "" General settings
