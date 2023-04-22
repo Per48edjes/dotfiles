@@ -7,4 +7,5 @@ return {
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.comment.mini-comment" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.markdown-and-latex.vimtex" },
 }

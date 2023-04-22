@@ -21,14 +21,14 @@ return {
       })
     end
   },
+  -- TODO: Make cmd to load on start up
   {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
+    event = "VeryLazy",
     config = function()
       require("todo-comments").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
+        -- Configuration here, or leave empty to use defaults
       }
     end
   }
