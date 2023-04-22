@@ -11,3 +11,4 @@ configs/.zshrc .zshrc
 configs/.vimrc .vimrc
 configs/Ultisnips .vim/Ultisnips
 configs/coc-settings.json .vim/coc-settings.json
+configs/nvim/lua/user .config/nvim/lua/user

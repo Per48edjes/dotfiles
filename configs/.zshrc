@@ -38,7 +38,7 @@ plugins=(
     # sourcing vi-mode first so fzf keybindings don't get overwritten
     vi-mode
     git
-    gitfast
+    gh
     colored-man-pages
     fzf
     fzf-tab
@@ -67,8 +67,9 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-alias zshconfig="vim ~/.zshrc"
-alias vimconfig="vim ~/.vimrc"
+alias vim="nvim"
+alias zshconfig="nvim ~/.zshrc"
+alias vimconfig="nvim ~/.config/nvim/lua/user/"
 alias tmuxconfig="vim ~/.tmux.conf"
 alias ohmyzsh="cd ~/.oh-my-zsh"
 alias cls="clear"
@@ -99,15 +100,17 @@ POWERLEVEL9K_SHORTEN_STRATEGY='truncate_beginning'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_os_icon virtualenv dir)
 
 # Elements options of right prompt
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs command_execution_time status root_indicator background_jobs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs command_execution_time status background_jobs)
 
 # Add a second prompt line
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
 
 # Add a space in the first prompt
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='%F{#8be9fd}╭─%F{black}'
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='%F{#8be9fd}╭─'
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='%F{#8be9fd}╰%F{yellow1}%F{khaki1}%F{cornsilk1}%f '
+POWERLEVEL9K_RIGHT_PROMPT_LAST_SEGMENT_END_SYMBOL=''
+POWERLEVEL9K_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL=''
 
 # Virtual environment segment settings
 POWERLEVEL9K_VIRTUALENV_BACKGROUND='black'

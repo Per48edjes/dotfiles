@@ -8,15 +8,33 @@
 [alias]
 
 [core]
-  editor = vim
+  editor = nvim
 	excludesfile = ~/.gitignore_global
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+		navigate = true
 
 [diff]
-  tool = fugitive
+    tool = nvimdiff
+
+[difftool]
+    prompt = false
+
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 
 [merge]
-	tool = fugitive
-  conflictstyle = diff3
+    tool = nvimdiff
+
+[mergetool]
+    prompt = true
+
+[mergetool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c 'wincmd w' -c 'wincmd J'"
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -24,10 +42,5 @@
 	process = git-lfs filter-process
 	required = true
 
-[difftool "fugitive"]
-	cmd = vim -f -c \"Gvdiffsplit\" \"$MERGED\"
-
-[mergetool "fugitive"]
-	cmd = vim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 [pull]
 	rebase = true
