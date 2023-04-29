@@ -21,7 +21,6 @@ return {
       })
     end
   },
-  -- TODO: Make cmd to load on start up
   {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",

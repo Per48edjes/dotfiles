@@ -492,7 +492,6 @@ augroup END
 " Use ripgrep as default grep
 set grepprg=rg\ --vimgrep
 
-
 " Set no wrapping
 set nowrap
 
