@@ -2,6 +2,7 @@
 return {
   opt = {
     -- set to true or false etc.
+    autoread = true, -- sets vim.opt.autoread
     relativenumber = true, -- sets vim.opt.relativenumber
     number = true, -- sets vim.opt.number
     spell = false, -- sets vim.opt.spell
