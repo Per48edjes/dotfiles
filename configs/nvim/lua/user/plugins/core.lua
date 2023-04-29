@@ -60,6 +60,18 @@ return {
         -- disable for .vim files, but it work for another filetypes
         Rule("a", "a", "-vim")
       )
+      npairs.add_rules(
+        {
+          Rule("$$", "$$", "tex")
+              :with_pair(function(opts)
+                print(vim.inspect(opts))
+                if opts.line == "aa $$" then
+                  -- don't add pair on that line
+                  return false
+                end
+              end)
+        }
+      )
     end,
   },
   -- By adding to the which-key config and using our helper function you can add more which-key registered bindings
