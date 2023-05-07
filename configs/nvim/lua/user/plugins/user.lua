@@ -10,7 +10,6 @@ return {
   --   end,
   -- },
   "zbirenbaum/copilot.lua",
-  "Mofiqul/dracula.nvim",
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -21,14 +20,4 @@ return {
       })
     end
   },
-  {
-    "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("todo-comments").setup {
-        -- Configuration here, or leave empty to use defaults
-      }
-    end
-  }
 }
