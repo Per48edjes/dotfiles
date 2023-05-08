@@ -144,11 +144,15 @@ echo -e "\033]6;1;bg;red;brightness;18\a"
 echo -e "\033]6;1;bg;green;brightness;26\a"
 echo -e "\033]6;1;bg;blue;brightness;33\a"
 
+
 ### CUSTOM ###
 
+## Set config directory
+export XDG_CONFIG_HOME="$HOME/.config"
+
 ## Set vim as default editor
-export EDITOR=/usr/local/bin/vim
-export VISUAL=/usr/local/bin/vim
+export EDITOR=nvim
+export VISUAL=nvim
 
 ## Auto CD when path is given without command
 setopt AUTO_CD
