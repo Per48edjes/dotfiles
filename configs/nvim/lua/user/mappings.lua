@@ -25,6 +25,9 @@ return {
     ["<leader>fT"] = { "<cmd>TodoTelescope<cr>", desc = "Find TODOs" },
     ["<F1>"] = { "<NOP>" },
   },
+  i = {
+    ["<F1>"] = { "<NOP>" },
+  },
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
