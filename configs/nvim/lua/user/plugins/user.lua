@@ -11,6 +11,17 @@ return {
   -- },
   "zbirenbaum/copilot.lua",
   {
+    "adoyle-h/lsp-toggle.nvim",
+    dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim" },
+    event = "VeryLazy",
+    config = function()
+      require("lsp-toggle").setup {
+        create_cmds = true,
+        telescope = true,
+      }
+    end,
+  },
+  {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
@@ -19,6 +30,14 @@ return {
         -- Configuration here, or leave empty to use defaults
       }
     end,
+  },
+  {
+    "folke/trouble.nvim",
+    dependencies = "nvim-tree/nvim-web-devicons",
+    opts = {
+      -- Your configuration comes here
+      -- or leave it empty to use the default settings
+    },
   },
   {
     "linux-cultist/venv-selector.nvim",
