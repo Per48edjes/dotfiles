@@ -15,4 +15,22 @@ return {
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.haskell" },
+  -- HACK: Overwriting AstroCommunity Haskell pack
+  {
+    "mrcjkb/haskell-tools.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim", -- Optional
+    },
+    branch = "2.x.x",                  -- Recommended
+    init = function()                  -- Optional, see Advanced configuration
+      vim.g.haskell_tools = {
+        tools = {},
+        hls = {
+          on_attach = function(client, bufnr, ht) end,
+        },
+      }
+    end,
+    ft = { "haskell", "lhaskell", "cabal", "cabalproject" },
+  },
 }
