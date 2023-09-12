@@ -192,6 +192,9 @@ export GH_HOST="$(echo ${GITHUB_URL} | cut -c 9-)" # removes https://
 
 ### ENVIRONMENT MANAGEMENT ###
 
+## pkgconfig path
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+
 ## pipenv
 
 # Shell completions
