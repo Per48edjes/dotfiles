@@ -31,6 +31,19 @@ return {
       }
     end,
   },
+  -- NOTE: This is a workaround while we get resolution on
+  -- https://github.com/mrcjkb/haskell-tools.nvim/issues/251
+  {
+    "kevinhwang91/nvim-ufo",
+    config = function()
+      require("ufo").setup {
+        provider_selector = function(filetype)
+          if filetype == "haskell" then return { "treesitter", "indent" } end
+          return nil -- use default
+        end,
+      }
+    end,
+  },
   {
     "folke/trouble.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
