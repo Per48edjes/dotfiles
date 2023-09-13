@@ -1,3 +1,4 @@
+local utils = require "astronvim.utils"
 return {
   -- You can also add new plugins here as well:
   -- Add plugins, the lazy syntax
@@ -31,16 +32,13 @@ return {
       }
     end,
   },
-  -- NOTE: This is a workaround while we get resolution on
-  -- https://github.com/mrcjkb/haskell-tools.nvim/issues/251
   {
-    "kevinhwang91/nvim-ufo",
-    config = function()
-      require("ufo").setup {
-        provider_selector = function(filetype)
-          if filetype == "haskell" then return { "treesitter", "indent" } end
-          return nil -- use default
-        end,
+    "mrcjkb/haskell-tools.nvim",
+    config = function() -- Optional, see Advanced configuration
+      vim.g.haskell_tools = {
+        hls = {
+          debug = true,
+        },
       }
     end,
   },
