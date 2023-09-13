@@ -195,6 +195,10 @@ export GH_HOST="$(echo ${GITHUB_URL} | cut -c 9-)" # removes https://
 ## pkgconfig path
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 
+## TODO: Remove after debugging Haskell LSP + code folding range issue
+export NVIM_DATA_MINIMAL=$(mktemp -d)
+export NVIM_APP_NAME="nvim-ht-minimal"
+
 ## pipenv
 
 # Shell completions
