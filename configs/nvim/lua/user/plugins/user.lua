@@ -77,7 +77,7 @@ return {
         -- require nvim-dap-python from https://github.com/mfussenegger/nvim-dap-python
         -- require debugpy from https://github.com/microsoft/debugpy
         -- require nvim-dap from https://github.com/mfussenegger/nvim-dap
-        dap_enabled = false,
+        dap_enabled = true,
 
         -- parents (default: 2) - Used when search = true only. How many parent directories the plugin will go up
         -- (relative to where your open file is on the file system when you run VenvSelect). Once the parent directory

@@ -16,5 +16,6 @@ return {
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.haskell" },
 }
