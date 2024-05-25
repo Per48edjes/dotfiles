@@ -111,6 +111,9 @@ manual_preadjustments() {
   # Oh-My-Zsh 
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+  # GHCup
+  curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+
   [[ $? ]] && _success "Manual adjustments made successfully"
 }
 
