@@ -7,6 +7,7 @@ return {
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
 
   { import = "astrocommunity.colorscheme.dracula-nvim" },
+  { import = "astrocommunity.recipes.heirline-vscode-winbar" },
   { import = "astrocommunity.comment.mini-comment" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.markdown-and-latex.vimtex" },
