@@ -42,7 +42,6 @@ plugins=(
     colored-man-pages
     fzf
     fzf-tab
-    ripgrep
     aws
     zsh-autosuggestions
     zsh-syntax-highlighting
