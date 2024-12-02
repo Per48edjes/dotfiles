@@ -208,6 +208,11 @@ eval "$(pyenv virtualenv-init -)"
 eval "$(pyenv init -)"
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
 
+
+## Go
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
+
 ## GHCup
 
  # ghcup-env
