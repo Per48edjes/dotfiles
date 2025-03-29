@@ -7,6 +7,7 @@ return {
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
 
   { import = "astrocommunity.colorscheme.dracula-nvim" },
+  { import = "astrocommunity.split-and-window.colorful-winsep-nvim" },
   { import = "astrocommunity.recipes.heirline-vscode-winbar" },
   { import = "astrocommunity.comment.mini-comment" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
@@ -17,7 +18,7 @@ return {
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.cpp" },
-  { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.python-ruff" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.haskell" },
 }
