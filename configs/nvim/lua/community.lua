@@ -12,6 +12,7 @@ return {
   { import = "astrocommunity.comment.mini-comment" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.markdown-and-latex.vimtex" },
+  { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.lua" },
