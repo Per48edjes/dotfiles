@@ -1,85 +1,86 @@
+-- You can also add or configure plugins by creating files in this `plugins/` folder
+-- PLEASE REMOVE THE EXAMPLES YOU HAVE NO INTEREST IN BEFORE ENABLING THIS FILE
+-- Here are some examples:
+
+---@type LazySpec
 return {
-  -- You can also add new plugins here as well:
-  -- Add plugins, the lazy syntax
-  -- "andweeb/presence.nvim",
-  -- {
-  --   "ray-x/lsp_signature.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("lsp_signature").setup()
-  --   end,
-  -- },
-  "zbirenbaum/copilot.lua",
+
+  -- == Examples of Adding Plugins ==
+
+  "andweeb/presence.nvim",
   {
-    "adoyle-h/lsp-toggle.nvim",
-    dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim" },
-    event = "VeryLazy",
-    config = function()
-      require("lsp-toggle").setup {
-        create_cmds = true,
-        telescope = true,
-      }
-    end,
+    "ray-x/lsp_signature.nvim",
+    event = "BufRead",
+    config = function() require("lsp_signature").setup() end,
   },
+
+  -- == Examples of Overriding Plugins ==
+
+  -- customize dashboard options
   {
-    "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup {
-        -- Configuration here, or leave empty to use defaults
-      }
-    end,
-  },
-  {
-    "folke/trouble.nvim",
-    dependencies = "nvim-tree/nvim-web-devicons",
+    "folke/snacks.nvim",
     opts = {
-      -- Your configuration comes here
-      -- or leave it empty to use the default settings
-    },
-  },
-  {
-    "folke/twilight.nvim",
-    opts = {
-      dimming = {
-        alpha = 0.25, -- amount of dimming
-        -- we try to get the foreground from the highlight groups or fallback color
-        color = { "Normal", "#ffffff" },
-        term_bg = "#000000", -- if guibg=NONE, this will be used to calculate text color
-        inactive = false, -- when true, other windows will be fully dimmed (unless they contain the same buffer)
-      },
-      context = 10, -- amount of lines we will try to show around the current line
-      treesitter = true, -- use treesitter when available for the filetype
-      -- treesitter is used to automatically expand the visible text,
-      -- but you can further control the types of nodes that should always be fully expanded
-      expand = { -- for treesitter, we we always try to expand to the top-most ancestor with these types
-        "function",
-        "method",
-        "table",
-        "if_statement",
-      },
-      exclude = {}, -- exclude these filetypes
-    },
-  },
-  {
-    "lervag/vimtex",
-    ft = "tex",
-    config = function()
-      vim.g.tex_flavor = "tex"
-      vim.g.vimtex_view_method = "skim"
-      vim.g.vimtex_quickfix_mode = 1
-      vim.g.vimtex_fold_enabled = 1
-      vim.g.tex_conceal = "abdmg"
-      vim.g.vimtex_compiler_latexmk = {
-        options = {
-          "--shell-escape",
-          "-verbose",
-          "-file-line-error",
-          "-synctex=1",
-          "-interaction=nonstopmode",
+      dashboard = {
+        preset = {
+          header = table.concat({
+            " █████  ███████ ████████ ██████   ██████ ",
+            "██   ██ ██         ██    ██   ██ ██    ██",
+            "███████ ███████    ██    ██████  ██    ██",
+            "██   ██      ██    ██    ██   ██ ██    ██",
+            "██   ██ ███████    ██    ██   ██  ██████ ",
+            "",
+            "███    ██ ██    ██ ██ ███    ███",
+            "████   ██ ██    ██ ██ ████  ████",
+            "██ ██  ██ ██    ██ ██ ██ ████ ██",
+            "██  ██ ██  ██  ██  ██ ██  ██  ██",
+            "██   ████   ████   ██ ██      ██",
+          }, "\n"),
         },
-      }
+      },
+    },
+  },
+
+  -- You can disable default plugins as follows:
+  { "max397574/better-escape.nvim", enabled = false },
+
+  -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
+  {
+    "L3MON4D3/LuaSnip",
+    config = function(plugin, opts)
+      require "astronvim.plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
+      -- add more custom luasnip configuration such as filetype extend or custom snippets
+      local luasnip = require "luasnip"
+      luasnip.filetype_extend("javascript", { "javascriptreact" })
+    end,
+  },
+
+  {
+    "windwp/nvim-autopairs",
+    config = function(plugin, opts)
+      require "astronvim.plugins.configs.nvim-autopairs"(plugin, opts) -- include the default astronvim config that calls the setup call
+      -- add more custom autopairs configuration such as custom rules
+      local npairs = require "nvim-autopairs"
+      local Rule = require "nvim-autopairs.rule"
+      local cond = require "nvim-autopairs.conds"
+      npairs.add_rules(
+        {
+          Rule("$", "$", { "tex", "latex" })
+            -- don't add a pair if the next character is %
+            :with_pair(cond.not_after_regex "%%")
+            -- don't add a pair if  the previous character is xxx
+            :with_pair(
+              cond.not_before_regex("xxx", 3)
+            )
+            -- don't move right when repeat character
+            :with_move(cond.none())
+            -- don't delete if the next character is xx
+            :with_del(cond.not_after_regex "xx")
+            -- disable adding a newline when you press <cr>
+            :with_cr(cond.none()),
+        },
+        -- disable for .vim files, but it work for another filetypes
+        Rule("a", "a", "-vim")
+      )
     end,
   },
 }
