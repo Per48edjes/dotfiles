@@ -5,7 +5,6 @@ return {
   -- { dir = "~/code/astrocommunity" },
   -- example of imporing a plugin, comment out to use it or add your own
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
-
   { import = "astrocommunity.colorscheme.dracula-nvim" },
   { import = "astrocommunity.split-and-window.colorful-winsep-nvim" },
   { import = "astrocommunity.recipes.heirline-vscode-winbar" },
